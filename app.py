@@ -279,7 +279,7 @@ if is_check_Tsp:
 			model = load_model(feature_t[j]+'_hourly'+'.h5')
 			y=hourly[feature_t[j]][-1]
 			result=f1(y,model)
-			col2.write("predicted_"+feature_t[j]+" for next one hour= ")
+			col2.write("predicted_"+feature_t[j]+" value for next one hour= ")
 			col2.write(result)
 	
 			
@@ -291,7 +291,7 @@ if is_check_Tsp:
 			model = load_model(feature_t[j]+'_weekly'+'.h5')
 			y=weekly[feature_t[j]][-1]
 			result=f1(y,model)
-			col2.write("predicted_"+feature_t[j]+" for next one week= ")
+			col2.write("predicted_"+feature_t[j]+" value for next one week= ")
 			col2.write(result)
 	
 			#col2.line_chart(weekly[feature_t[j]])
@@ -302,7 +302,7 @@ if is_check_Tsp:
 			#model = load_model('EFF_Efficiency_daily.h5')
 			y=daily[feature_t[j]][-1]
 			result=f1(y,model)
-			col2.write("predicted_"+feature_t[j]+"value for next one day = ")
+			col2.write("predicted_"+feature_t[j]+" value for next one day = ")
 			col2.write(result)
 	
 			
