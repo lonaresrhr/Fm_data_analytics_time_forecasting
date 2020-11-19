@@ -11,7 +11,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 st.beta_set_page_config(layout="wide")
-#st.set_option('deprecation.showPyplotGlobalUse', False) ### To hide matplotlib.pyplot error have to correct later on
+st.set_option('deprecation.showPyplotGlobalUse', False) ### To hide matplotlib.pyplot error have to correct later on
 
 
 image = Image.open('logo1.jpeg')
