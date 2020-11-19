@@ -316,6 +316,6 @@ if is_check_Tsp:
 
 #################### Extra features ########################################
 is_check_Ef_1 = col3.checkbox("....")
-is_check_Ef_2 = col3.checkbox(".....")
+is_check_Ef_2 = col3.checkbox("...")
 
 
