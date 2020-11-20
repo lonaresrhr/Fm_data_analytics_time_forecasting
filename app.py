@@ -80,8 +80,36 @@ data=data.dropna()
 
 is_check1=col3.checkbox("Display selected feature Data")
 if is_check1:
-    col2.write("Selected Feature Data")
-    col2.write(data)
+	col2.write("Selected Feature Data")
+    	#col2.write(data)
+	hourly = data.resample('H').mean() 
+	hourly=hourly.dropna()
+	daily = data.resample('D').mean() 
+	daily=daily.dropna()
+	weekly = data.resample('W').mean() 
+	weekly=weekly.dropna()
+	monthly = data.resample('M').mean()
+	monthly=monthly.dropna()
+	minitly=data.resample('min').mean() 
+	minitly=minitly.dropna()
+    	
+
+	
+
+	if plot_timeline == 'Minute-Wise':
+		col2.write(minitly)
+	
+	if plot_timeline == 'Hourly':
+		col2.write(hourly)
+	
+	if plot_timeline == 'Weekly':
+		col2.write(weekly)
+	
+	if plot_timeline == 'Daily':
+		col2.write(daily)
+	
+	if plot_timeline == 'Monthly':
+		col2.write(monthly)
 
 ####################    Plotting correlation Matrix  ##################################
 l=len(feature)
@@ -275,11 +303,12 @@ if is_check_Tsp:
 			col2.line_chart(minitly[feature_t[j]])
 	
 		if plot_timeline1 == 'Hour':
-			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
-			model = load_model(feature_t[j]+'_hourly'+'.h5')
+			model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
+			#model = load_model(feature_t[j]+'_hourly'+'.h5')
 			y=hourly[feature_t[j]][-1]
 			result=f1(y,model)
-			col2.write("predicted_"+feature_t[j]+" value for next one hour= ")
+			col2.write(hourly[feature_t[j]])
+			col2.write("predicted_"+feature_t[j]+" for next one hour= ")
 			col2.write(result)
 	
 			
@@ -287,22 +316,24 @@ if is_check_Tsp:
 			#col2.line_chart(hourly[feature_t[j]])
 	
 		if plot_timeline1 == 'Week':
-			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_weekly'+'.h5')
-			model = load_model(feature_t[j]+'_weekly'+'.h5')
+			model = load_model(feature_t[j]+'/'+feature_t[j]+'_weekly'+'.h5')
+			#model = load_model(feature_t[j]+'_weekly'+'.h5')
 			y=weekly[feature_t[j]][-1]
 			result=f1(y,model)
-			col2.write("predicted_"+feature_t[j]+" value for next one week= ")
+			col2.write(weekly[feature_t[j]])
+			col2.write("predicted_"+feature_t[j]+" for next one week= ")
 			col2.write(result)
 	
 			#col2.line_chart(weekly[feature_t[j]])
 	
 		if plot_timeline1 == 'Day':
-			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_daily'+'.h5')
-			model = load_model(feature_t[j]+'_daily'+'.h5')
+			model = load_model(feature_t[j]+'/'+feature_t[j]+'_daily'+'.h5')
+			#model = load_model(feature_t[j]+'_daily'+'.h5')
 			#model = load_model('EFF_Efficiency_daily.h5')
 			y=daily[feature_t[j]][-1]
 			result=f1(y,model)
-			col2.write("predicted_"+feature_t[j]+" value for next one day = ")
+			col2.write(daily[feature_t[j]])
+			col2.write("predicted_"+feature_t[j]+"value for next one day = ")
 			col2.write(result)
 	
 			
@@ -312,6 +343,7 @@ if is_check_Tsp:
 		if plot_timeline1 == 'Month':
 			#col2.line_chart(monthly[feature_t[j]])
 			col2.write("Not sufficient data for Monthly Prediction")
+		
 		
 
 #################### Extra features ########################################
