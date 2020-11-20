@@ -303,8 +303,8 @@ if is_check_Tsp:
 			col2.line_chart(minitly[feature_t[j]])
 	
 		if plot_timeline1 == 'Hour':
-			model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
-			#model = load_model(feature_t[j]+'_hourly'+'.h5')
+			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
+			model = load_model(feature_t[j]+'_hourly'+'.h5')
 			y=hourly[feature_t[j]][-1]
 			result=f1(y,model)
 			col2.write(hourly[feature_t[j]])
@@ -316,8 +316,8 @@ if is_check_Tsp:
 			#col2.line_chart(hourly[feature_t[j]])
 	
 		if plot_timeline1 == 'Week':
-			model = load_model(feature_t[j]+'/'+feature_t[j]+'_weekly'+'.h5')
-			#model = load_model(feature_t[j]+'_weekly'+'.h5')
+			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_weekly'+'.h5')
+			model = load_model(feature_t[j]+'_weekly'+'.h5')
 			y=weekly[feature_t[j]][-1]
 			result=f1(y,model)
 			col2.write(weekly[feature_t[j]])
@@ -327,8 +327,8 @@ if is_check_Tsp:
 			#col2.line_chart(weekly[feature_t[j]])
 	
 		if plot_timeline1 == 'Day':
-			model = load_model(feature_t[j]+'/'+feature_t[j]+'_daily'+'.h5')
-			#model = load_model(feature_t[j]+'_daily'+'.h5')
+			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_daily'+'.h5')
+			model = load_model(feature_t[j]+'_daily'+'.h5')
 			#model = load_model('EFF_Efficiency_daily.h5')
 			y=daily[feature_t[j]][-1]
 			result=f1(y,model)
