@@ -220,6 +220,7 @@ i['year']=i.Datetime.dt.year
 i['month']=i.Datetime.dt.month 
 i['day']=i.Datetime.dt.day
 i['Hour']=i.Datetime.dt.hour 
+i['Minute']=i.Datetime.dt.minute
 i["Week"]=i.Datetime.dt.day_name()
 data4=i
 
@@ -243,7 +244,7 @@ if is_check3:
 		
    
 		if plot_timeline == 'Minute-Wise':
-			col2.bar_chart(minitly)
+			col2.bar_chart(data4.groupby('Minute')[feature[i]].mean())
 	
 		if plot_timeline == 'Hourly':
 			#st.line_chart(data4.groupby('Hour')[feature[i]].mean())
