@@ -321,13 +321,13 @@ if is_check_Tsp:
 			col2.line_chart(minitly[feature_t[j]])
 	
 		if plot_timeline1 == 'Hour':
-			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
+			model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
 			#model = load_model(feature_t[j]+'_hourly'+'.h5')
-			model = load_model('EFF_efficiency/'+feature_t[j]+'_hourly'+'.h5')
+			#model = load_model('EFF_efficiency/'+feature_t[j]+'_hourly'+'.h5')
 			y=hourly[feature_t[j]][-1]
 			result=f1(y,model)
 			col2.write(hourly[feature_t[j]])
-			col2.write("predicted_"+feature_t[j]+" for next one hour= ")
+			col2.write("predicted "+feature_t[j]+" for next one hour= ")
 			col2.write(result)
 	
 			
@@ -340,7 +340,7 @@ if is_check_Tsp:
 			y=weekly[feature_t[j]][-1]
 			result=f1(y,model)
 			col2.write(weekly[feature_t[j]])
-			col2.write("predicted_"+feature_t[j]+" for next one week= ")
+			col2.write("predicted "+feature_t[j]+" for next one week= ")
 			col2.write(result)
 	
 			#col2.line_chart(weekly[feature_t[j]])
@@ -352,7 +352,7 @@ if is_check_Tsp:
 			y=daily[feature_t[j]][-1]
 			result=f1(y,model)
 			col2.write(daily[feature_t[j]])
-			col2.write("predicted_"+feature_t[j]+"value for next one day = ")
+			col2.write("predicted "+feature_t[j]+"value for next one day = ")
 			col2.write(result)
 	
 			
