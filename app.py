@@ -47,8 +47,8 @@ def upload_function():
 	
 @st.cache(allow_output_mutation=True)
 def upload_function_1():	
-	data1 =st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv',parse_dates=True,index_col='Timestamp',dayfirst=True)
-	data2=st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv')
+	data1 =st.cache(pd.read_csv)('Effimax - Sunidhi - History.csv',parse_dates=True,index_col='Timestamp',dayfirst=True)
+	data2=st.cache(pd.read_csv)('Effimax - Sunidhi - History.csv')
 	return data1,data2
 
 
@@ -205,9 +205,13 @@ if is_check2:
 
 
 ############################	Plotting Mean timeline data bar chart     ############################
-data3=data2
-data3['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%Y-%m-%d %H:%M') 
-i=data3
+data6=data2
+try:
+	data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%Y-%m-%d %H:%M') 
+except:
+	data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%d-%m-%Y %H:%M') 
+i=data6
+
 
 i['year']=i.Datetime.dt.year 
 i['month']=i.Datetime.dt.month 
