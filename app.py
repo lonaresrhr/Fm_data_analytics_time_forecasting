@@ -321,7 +321,9 @@ if is_check_Tsp:
 			col2.line_chart(minitly[feature_t[j]])
 	
 		if plot_timeline1 == 'Hour':
-			model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
+			
+			model = load_model('Time_forecast_features/'+feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
+			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
 			#model = load_model(feature_t[j]+'_hourly'+'.h5')
 			#model = load_model('EFF_efficiency/'+feature_t[j]+'_hourly'+'.h5')
 			y=hourly[feature_t[j]][-1]
