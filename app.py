@@ -322,7 +322,8 @@ if is_check_Tsp:
 	
 		if plot_timeline1 == 'Hour':
 			#model = load_model(feature_t[j]+'/'+feature_t[j]+'_hourly'+'.h5')
-			model = load_model(feature_t[j]+'_hourly'+'.h5')
+			#model = load_model(feature_t[j]+'_hourly'+'.h5')
+			model = load_model('EFF_efficiency/'+feature_t[j]+'_hourly'+'.h5')
 			y=hourly[feature_t[j]][-1]
 			result=f1(y,model)
 			col2.write(hourly[feature_t[j]])
