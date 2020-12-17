@@ -71,7 +71,7 @@ orignaldata=data1
 
 ################# Creating Multiselection features sidebars #################################
     
-feature= col1.multiselect("select The feature for data analytics",orignaldata.columns)
+feature= col1.multiselect("Select the features for data analytics",orignaldata.columns)
 plot_timeline =col1.radio('Plot data Timeline', ['Minute-Wise','Hourly', 'Daily', 'Weekly/Weekdays', 'Monthly','Weekend'])
 
 
@@ -88,7 +88,7 @@ if is_check:
 data=pd.DataFrame(orignaldata[feature])
 #data=data.dropna()
 
-is_check1=col3.checkbox("Display selected feature Data")
+is_check1=col3.checkbox("Display selected features Data")
 if is_check1:
     col2.write("Selected Feature Data")
     col2.write(data)
@@ -126,7 +126,7 @@ if is_check5:
      
 #####################	Plotting Histograms	#############################################
 
-is_check4=col3.checkbox("Display selected feature histograms")
+is_check4=col3.checkbox("Display selected features histograms")
 
 if is_check4:
 	for i in list1:
@@ -143,7 +143,7 @@ if is_check4:
 
 
 
-is_check2=col3.checkbox("Display selected feature data timeline plots")
+is_check2=col3.checkbox("Display selected features data timeline plots")
 
 if is_check2:
 	hourly = data.resample('H').mean() 
@@ -206,7 +206,7 @@ temp2 = data4['Datetime'].apply(applyer)
 data4['weekend']=temp2
 data4.index = data4['Datetime'] # indexing the Datetime to get the time period on the x-axis. 
 
-is_check3=col3.checkbox("Display selected feature Mean value timeline bar plots")
+is_check3=col3.checkbox("Display selected features Mean value timeline bar plots")
 
 
 if is_check3:
@@ -257,7 +257,7 @@ def f1(v,model):
 
 columns_time_forecasting=["EFF_Efficiency",'EFF_Enthalpy_Loss']
 
-feature_t= col1.multiselect("Select The feature for time forecasting",columns_time_forecasting)
+feature_t= col1.multiselect("Select the features for time forecasting",columns_time_forecasting)
 #plot_timeline1 = col1.radio('selct the predition for next', ['Minute','Hour', 'Day', 'Week', 'Month'])
 plot_timeline1 = col1.radio('selct the predition for next', ['Hour', 'Day', 'Week', 'Month'])
 l_t=len(feature_t)
