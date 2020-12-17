@@ -175,7 +175,8 @@ if is_check2:
 	
 	if plot_timeline == 'Monthly':
 		col2.line_chart(monthly)
-
+	if plot_timeline == 'Weekend':
+		col2.write("Weekend option is not applicable for displaying time line data")
 
 ############################	Plotting Mean timeline data bar chart     ############################
 data6=data2
