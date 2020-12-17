@@ -48,7 +48,10 @@ def upload_function():
 @st.cache(allow_output_mutation=True)
 def upload_function_1():	
 	data1 =st.cache(pd.read_csv)('Effimax - Sunidhi - History.csv',parse_dates=True,index_col='Timestamp',dayfirst=True)
+	data1=data1.loc[data1['EFF_Boiler_ON'] == 1]
 	data2=st.cache(pd.read_csv)('Effimax - Sunidhi - History.csv')
+	data2=data2.loc[data2['EFF_Boiler_ON'] == 1]
+	
 	return data1,data2
 
 
