@@ -30,47 +30,44 @@ col3.title('Analytics Section')
 #col1.header('upload input data file')
 uploaded_file = col1.file_uploader("Upload your input  csv file",type=["csv"])
 
-#@st.cache
-#@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 def upload_function():
-	data1 = pd.read_csv(uploaded_file,parse_dates=True,index_col='Timestamp')
-	data2=pd.read_csv(uploaded_file,parse_dates=True)
-	return data1,data2
-	
-	
-
-if uploaded_file is not None:
-
-	# Collects user input features into dataframe
-	#data1,data2=upload_function()
 	data1 = st.cache(pd.read_csv)(uploaded_file,parse_dates=True,index_col='Timestamp')
 	data2=st.cache(pd.read_csv)(uploaded_file,parse_dates=True)
-	#data1 = pd.read_csv(uploaded_file,parse_dates=True,index_col='Timestamp')
-	#data2=pd.read_csv(uploaded_file,parse_dates=True)
 	try:
 		datax=data1
 		datax['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%Y-%m-%d %H:%M') 
 		data1=data1
 		
 	except:
-		data1= st.cache(pd.read_csv)(uploaded_file,parse_dates=True,index_col='Timestamp',dayfirst=True)
+		data1=st.cache(pd.read_csv)(uploaded_file,parse_dates=True,index_col='Timestamp',dayfirst=True)
 		#data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%d-%m-%Y %H:%M') 
+	
+	return data1,data2
+	
+@st.cache(allow_output_mutation=True)
+def upload_function_1():	
+	data1 =st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv',parse_dates=True,index_col='Timestamp',dayfirst=True)
+	data2=st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv')
+	return data1,data2
+
+
+
+
+################### Uploading user selectec files  ###################################
+
+if uploaded_file is not None:
+
+	
+	data1,data2=upload_function()
+	
 	
 	
 else :
-	#data1 = st.cache(pd.read_csv)('Effimax - Sunidhi - History.csv',parse_dates=True,index_col='Timestamp')
-	data1 = st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv',parse_dates=True,index_col='Timestamp',dayfirst=True)
-	#data1 = st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv',index_col='Timestamp')
-	#data1=data1.loc[data1['EFF_Boiler_ON'] == 1]
-	#data2=st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv',parse_dates=True)
-	data2=st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv')
-	#data2=data2.loc[data2['EFF_Boiler_ON'] == 1]
-	#data2=
-	
+	data1,data2=upload_function_1()
 
-
-#orignaldata=data1.dropna()
 orignaldata=data1
+	
 
 ################# Creating Multiselection features sidebars #################################
     
