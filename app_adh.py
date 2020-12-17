@@ -167,7 +167,7 @@ if is_check2:
 	if plot_timeline == 'Hourly':
 		col2.line_chart(hourly)
 	
-	if plot_timeline == 'Weekly':
+	if plot_timeline == 'Weekly/Weekdays':
 		col2.line_chart(weekly)
 	
 	if plot_timeline == 'Daily':
@@ -220,7 +220,7 @@ if is_check3:
 	
 			col2.bar_chart(data4.groupby('Hour')[feature[i]].mean())
 	
-		if plot_timeline == 'Weekly':
+		if plot_timeline == 'Weekly/Weekdays':
 			col2.bar_chart(data4.groupby('Week')[feature[i]].mean())
 	
 		if plot_timeline == 'Daily':
