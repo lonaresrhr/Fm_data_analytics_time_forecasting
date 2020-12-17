@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 st.beta_set_page_config(layout="wide")
 #st.set_option('deprecation.showPyplotGlobalUse', False) ### To hide matplotlib.pyplot error have to correct later on
 
@@ -53,7 +53,7 @@ if uploaded_file is not None:
 		data1=data1
 		
 	except:
-		data1=data1 = st.cache(pd.read_csv)(uploaded_file,parse_dates=True,index_col='Timestamp',dayfirst=True)
+		data1= st.cache(pd.read_csv)(uploaded_file,parse_dates=True,index_col='Timestamp',dayfirst=True)
 		#data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%d-%m-%Y %H:%M') 
 	
 	
@@ -120,12 +120,12 @@ if is_check5:
     		#print(corr1[i])
     			y.append(corr1[j])
     			z.append(corr1.index[j])
-		plt.figure(figsize=(15,10))
+		f1=plt.figure(figsize=(15,10))
 		sns.barplot(y,z) 
 		
 		plt.show()
 		plt.title(feature[i]+"_Correlation_Matrix")
-		col2.pyplot()
+		col2.pyplot(f1)
      
 #####################	Plotting Histograms	#############################################
 
@@ -133,11 +133,12 @@ is_check4=col3.checkbox("Display selected feature histograms")
 
 if is_check4:
 	for i in list1:
+		f2=plt.figure(figsize=(10,5))
 		data1[feature[i]].plot.hist()
-		#data1[feature[i]].hist()
 		plt.show()
 		plt.legend([feature[i]])
-		col2.pyplot()
+		col2.pyplot(f2)
+
 
 ####################	 Ploting hourly and daily and weekly available data for selected feature ###############################
    
