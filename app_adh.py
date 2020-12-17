@@ -72,7 +72,7 @@ orignaldata=data1
 ################# Creating Multiselection features sidebars #################################
     
 feature= col1.multiselect("select The feature for data analytics",orignaldata.columns)
-plot_timeline =col1.radio('Plot data Timeline', ['Minute-Wise','Hourly', 'Daily', 'Weekly', 'Monthly','Weekend'])
+plot_timeline =col1.radio('Plot data Timeline', ['Minute-Wise','Hourly', 'Daily', 'Weekly/Weekdays', 'Monthly','Weekend'])
 
 
 
