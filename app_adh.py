@@ -181,10 +181,11 @@ if is_check2:
 ############################	Plotting Mean timeline data bar chart     ############################
 data6=data2
 try:
-	data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%Y-%m-%d %H:%M') 
+	data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%Y-%m-%d %H:%M:%S') 
 except:
 	#data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%d-%m-%Y %H:%M') 
-	data6['Datetime'] = pd.to_datetime(data2.Timestamp,dayfirst=True) 
+	#data6['Datetime'] = pd.to_datetime(data2.Timestamp,dayfirst=True) 
+	data6['Datetime'] = pd.to_datetime(data2.Timestamp,format='%d-%m-%Y %H:%M:%S')
 i=data6
 
 i['year']=i.Datetime.dt.year 
