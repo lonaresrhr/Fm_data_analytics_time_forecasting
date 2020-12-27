@@ -183,7 +183,8 @@ data6=data2
 try:
 	data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%Y-%m-%d %H:%M') 
 except:
-	data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%d-%m-%Y %H:%M') 
+	#data6['Datetime'] = pd.to_datetime(data2.Timestamp ,format='%d-%m-%Y %H:%M') 
+	data6['Datetime'] = pd.to_datetime(data2.Timestamp,dayfirst=True) 
 i=data6
 
 i['year']=i.Datetime.dt.year 
