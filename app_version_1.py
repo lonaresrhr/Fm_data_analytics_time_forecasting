@@ -429,7 +429,7 @@ def Make_predictions(test,trainX, trainY,testX, testY,model,feat):
 
 
 
-plot_timeline1 = col1.radio('selct the predition ', ['Hour', 'Day', 'Week', 'Month'])
+plot_timeline1 = col1.radio('selct the predition ', [ 'Day', 'Hour','Week', 'Month'])
 l_t=len(feature)
 list_t=range(0,l_t)
 
