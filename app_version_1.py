@@ -14,18 +14,18 @@ from tensorflow.keras.layers import LSTM
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 import numpy
-
+from io import StringIO
 
 
 #st.set_option('deprecation.showPyplotGlobalUse', False)
-st.set_page_config(layout="wide")
+st.set_page_config(page_title='Fm data Analytics App',layout='wide')
 #st.set_option('deprecation.showPyplotGlobalUse', False) ### To hide matplotlib.pyplot error have to correct later on
 
 
 image = Image.open('logo1.jpeg')
 
 st.image(image, width = 250)
-st.title(' Fm data Analytics App')
+#st.title(' Fm data Analytics App')
 
 col1 = st.sidebar
 col2, col3 = st.beta_columns((3,1))
@@ -34,11 +34,13 @@ col3.title('Analytics Section')
 
 
 
+with st.sidebar.header('1. Upload your CSV data'):
+    uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+    st.sidebar.markdown("""
+[Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/delaney_solubility_with_descriptors.csv)
+""")
 
-#col1.header('upload input data file')
-uploaded_file = col1.file_uploader("Upload your input  csv file",type=["csv"])
 
-@st.cache(allow_output_mutation=True)
 def upload_function():
 	data1 = st.cache(pd.read_csv)(uploaded_file,parse_dates=True,index_col='Timestamp')
 	data2=st.cache(pd.read_csv)(uploaded_file,parse_dates=True)
@@ -53,21 +55,56 @@ def upload_function():
 	
 	return data1,data2
 	
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 def upload_function_1():	
-	data1 =st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv',parse_dates=True,index_col='Timestamp',dayfirst=True)
-	data2=st.cache(pd.read_csv)('AdhunikAlloys_Amalgam Steel_Stack2Gas_Nov.csv')
+	data1 = pd.read_csv('VardhmanBudhni_Yarns_ Gas_combine.csv')
+	data2=pd.read_csv('VardhmanBudhni_Yarns_ Gas_combine.csv')
+	try:
+		
+		data1['Datetime'] = pd.to_datetime(data1.Timestamp ,format='%Y-%m-%d %H:%M:%S') 
+		data1.drop('Timestamp', axis=1, inplace=True)
+		data1.set_index("Datetime", inplace = True)
+ 
+		
+		
+	except:
+		data1['Datetime'] = pd.to_datetime(data1.Timestamp ,format='%d-%m-%Y %H:%M:%S') 
+		data1.drop('Timestamp', axis=1, inplace=True)
+		data1.set_index("Datetime", inplace = True)
+	
 	return data1,data2
+###########################################################################################
 
-
+#global train_upload
+#train_upload = st.file_uploader("Upload csv data", type=['csv'])
+#if (train_upload is not None):
+ #   train_features = train_upload.read()
+ #   train_features = str(train_features,'utf-8')
+ #   train_features = StringIO(train_features)
+ #   train_features = pd.read_csv(train_features)
+  #  st.write(train_features)
 
 
 ################### Uploading user selectec files  ###################################
 
 if uploaded_file is not None:
 
-	
-	data1,data2=upload_function()
+	data1 = pd.read_csv(uploaded_file)
+	#data2 =  pd.read_csv(uploaded_file)
+	data2=data1
+	try:
+		
+		data1['Datetime'] = pd.to_datetime(data1.Timestamp ,format='%Y-%m-%d %H:%M:%S') 
+		data1.drop('Timestamp', axis=1, inplace=True)
+		data1.set_index("Datetime", inplace = True)
+ 
+		
+		
+	except:
+		data1['Datetime'] = pd.to_datetime(data1.Timestamp ,format='%d-%m-%Y %H:%M:%S') 
+		data1.drop('Timestamp', axis=1, inplace=True)
+		data1.set_index("Datetime", inplace = True)
+ 
 	
 	
 	
@@ -80,7 +117,7 @@ orignaldata=data1
 ################# Creating Multiselection features sidebars #################################
     
 feature= col1.multiselect("Select the features for data analytics",orignaldata.columns)
-plot_timeline =col1.radio('Plot data Timeline', ['Minute-Wise','Hourly', 'Daily', 'Weekly/Weekdays', 'Monthly','Weekend'])
+plot_timeline =col1.radio('Plot data Timeline', ['Daily','Hourly','Minute-Wise', 'Weekly/Weekdays', 'Monthly','Weekend'])
 
 
 
@@ -107,8 +144,8 @@ list1=range(0,l)
 
 is_check5=col3.checkbox("Display selected features correlation matrix with all features")
 
-data3=data2.drop(columns=['Timestamp'])
-corr = data3.corr()
+#data3=data2
+#corr = data3.corr()
 corr=orignaldata.corr()
 if is_check5:
 	for i in list1:
@@ -157,7 +194,7 @@ if is_check4:
    
 
 
-
+data=data1
 
 is_check2=col3.checkbox("Display selected features data timeline plots")
 
@@ -203,38 +240,15 @@ def applyer(row):
 
 data6=data2
 
-@st.cache(allow_output_mutation=True)
-def data_fun():
-	
-	try:
-		data6['Datetime'] = pd.to_datetime(data2.Timestamp,format='%Y-%m-%d %H:%M:%S') 
-		return data6
-	except:
-		try:
-			data6['Datetime'] = pd.to_datetime(data2.Timestamp,format='%d-%m-%Y %H:%M:%S')
-		except:
-			data6['Datetime'] = pd.to_datetime(data2.Timestamp) 
-			
-		
-		
-	return data6
-	#data6['Datetime'] = pd.to_datetime(data2.Timestamp,dayfirst=True) 
-	#data6['Datetime'] = pd.to_datetime(data2.Timestamp,format='%d-%m-%Y %H:%M:%S')
-	##	data6['Datetime'] = pd.to_datetime(data2.Timestamp,format='%d-%m-%Y %H:%M:%S')
-	#	
-	#except:
-	#	data6['Datetime'] = pd.to_datetime(data2.Timestamp,dayfirst=True) 
-		#data6=data6
-	
-	
+
 	
 	
 
 is_check3=col3.checkbox("Display selected features Mean value timeline bar plots")
 
 if is_check3:
-	i=data_fun()
-
+	i=data1
+	i.reset_index(inplace=True)
 	i['year']=i.Datetime.dt.year 
 	i['month']=i.Datetime.dt.month 
 	i['day']=i.Datetime.dt.day
@@ -250,32 +264,29 @@ if is_check3:
 	temp2 = data4['Datetime'].apply(applyer) 
 	data4['weekend']=temp2
 	data4.index = data4['Datetime'] # indexing the Datetime to get the time period on the x-axis. 
-	data4=data_fun()
+	#data4=data_fun()
 
+	if plot_timeline == 'Minute-Wise':
+		bar_data=data4.groupby('Minute')[feature].mean()
 	
-
-	for i in list1:
-		
-   
-		if plot_timeline == 'Minute-Wise':
-			col2.bar_chart(data4.groupby('Minute')[feature[i]].mean())
-	
-		if plot_timeline == 'Hourly':
+	elif plot_timeline == 'Hourly':
 			#st.line_chart(data4.groupby('Hour')[feature[i]].mean())
 	
-			col2.bar_chart(data4.groupby('Hour')[feature[i]].mean())
+		bar_data=data4.groupby('Hour')[feature].mean()
 	
-		if plot_timeline == 'Weekly/Weekdays':
-			col2.bar_chart(data4.groupby('Week')[feature[i]].mean())
+	elif plot_timeline == 'Weekly/Weekdays':
+		bar_data=data4.groupby('Week')[feature].mean()
 	
-		if plot_timeline == 'Daily':
-			col2.bar_chart(data4.groupby('day')[feature[i]].mean())
+	elif plot_timeline == 'Daily':
+		bar_data=data4.groupby('day')[feature].mean()
 	
-		if plot_timeline == 'Monthly':
-			col2.bar_chart(data4.groupby('month')[feature[i]].mean())
-		if plot_timeline == 'Weekend':
-			col2.bar_chart(data4.groupby('weekend')[feature[i]].mean())
+	elif plot_timeline == 'Monthly':
+		bar_data=data4.groupby('month')[feature].mean()
+	elif plot_timeline == 'Weekend':
+		bar_data=data4.groupby('weekend')[feature].mean()
+	col2.bar_chart(bar_data)
 
+	
 
 #####################  SEF Calculation  ####################################
 
@@ -419,7 +430,7 @@ def Make_predictions(test,trainX, trainY,testX, testY,model,feat):
 	y_lstm=pd.DataFrame(y_lstm)
 	y_lstm['DateTime'] = y_lstm.index
 	y_lstm.reset_index(inplace=True)
-	del y_lstm['Timestamp']
+	#del y_lstm['Timestamp']
 	y_lstm = pd.concat([y_lstm,testPredict2],axis=1)
 	y_lstm = y_lstm.set_index('DateTime')
 	print(y_lstm)
@@ -429,7 +440,7 @@ def Make_predictions(test,trainX, trainY,testX, testY,model,feat):
 
 
 
-plot_timeline1 = col1.radio('selct the predition ', [ 'Day', 'Hour','Week', 'Month'])
+plot_timeline1 = col1.radio('selct the predition ', ['Day', 'Hour', 'Week', 'Month'])
 l_t=len(feature)
 list_t=range(0,l_t)
 
@@ -501,5 +512,12 @@ if is_check_Tsp:
 #################### Extra features ########################################
 is_check_Ef_1 = col3.checkbox("....")
 is_check_Ef_2 = col3.checkbox(".....")
+
+
+
+
+	
+	
+
 
 
