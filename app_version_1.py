@@ -18,7 +18,7 @@ import numpy
 
 
 #st.set_option('deprecation.showPyplotGlobalUse', False)
-st.beta_set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 #st.set_option('deprecation.showPyplotGlobalUse', False) ### To hide matplotlib.pyplot error have to correct later on
 
 
