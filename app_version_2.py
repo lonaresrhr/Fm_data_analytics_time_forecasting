@@ -146,7 +146,7 @@ if is_check_pair:
 	sns.pairplot(data)
 	plt.show()
 	plt.title("Pair Plot")
-	col2.pyplot(f_p)
+	col2.pyplot(plt)
      
 ####################    Plotting correlation Matrix  ##################################
 l=len(feature)
