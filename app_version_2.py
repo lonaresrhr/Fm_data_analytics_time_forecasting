@@ -158,8 +158,8 @@ if is_check_pair:
 	else:
 		f_p=plt.figure(figsize=(12,8))
 	g = sns.PairGrid(data)
-    	g.map_diag(my_hist)
-    	g.map_offdiag(my_scatter)
+	g.map_diag(my_hist)
+	g.map_offdiag(my_scatter)
 	#sns.pairplot(data)
 	#plt.show()
 	#plt.title("Pair Plot")
