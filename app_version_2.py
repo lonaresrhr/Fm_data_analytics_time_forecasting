@@ -15,6 +15,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 import numpy
 from io import StringIO
+import random
 
 
 #st.set_option('deprecation.showPyplotGlobalUse', False)
