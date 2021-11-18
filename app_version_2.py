@@ -133,7 +133,7 @@ if is_check1:
     col2.write("Selected Feature Data")
     col2.write(data)
 ################ PLotting Pair plots  ####################
-is_check_pair = col3.checkbox("PLot Selected feature Pairplot")
+is_check_pair = col3.checkbox("Plot Selected feature Pairplot")
 if is_check_pair:
 	l1=len(data.columns)
 	if (l1<=5) :
