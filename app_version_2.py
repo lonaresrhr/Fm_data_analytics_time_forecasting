@@ -132,7 +132,22 @@ is_check1=col3.checkbox("Display selected features Data")
 if is_check1:
     col2.write("Selected Feature Data")
     col2.write(data)
-
+################ PLotting Pair plots  ####################
+is_check_pair = col3.checkbox("PLot Selected feature Pairplot")
+if is_check_pair:
+	l1=len(data.columns)
+	if (l1<=5) :
+		f_p=plt.figure(figsize=(10,3))
+	elif(l1<=10):
+		f_p=plt.figure(figsize=(10,5))
+	else:
+		f_p=plt.figure(figsize=(12,8))
+		
+	sns.pairplot(data)
+	plt.show()
+	plt.title("Pair Plot")
+	col2.pyplot(f_p)
+     
 ####################    Plotting correlation Matrix  ##################################
 l=len(feature)
 list1=range(0,l)
@@ -525,7 +540,8 @@ if is_check_Tsp:
 		
 
 #################### Extra features ########################################
-is_check_Ef_1 = col3.checkbox("....")
+
+
 is_check_Ef_2 = col3.checkbox(".....")
 
 
