@@ -132,7 +132,21 @@ is_check1=col3.checkbox("Display selected features Data")
 if is_check1:
     col2.write("Selected Feature Data")
     col2.write(data)
-################ PLotting Pair plots  ####################
+################ PLotting Pair plots  ###################
+
+get_colors = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF),range(n)))
+colors1=get_colors(len(data.columns)**2)
+
+colors=iter(colors1)
+def my_scatter(x,y, **kwargs):
+    kwargs['color'] = next(colors)
+    plt.scatter(x,y, **kwargs)
+
+def my_hist(x, **kwargs):
+    kwargs['color'] = next(colors)
+    plt.hist(x, **kwargs)
+
+
 is_check_pair = col3.checkbox("Plot Selected feature Pairplot")
 if is_check_pair:
 	l1=len(data.columns)
@@ -142,8 +156,10 @@ if is_check_pair:
 		f_p=plt.figure(figsize=(10,5))
 	else:
 		f_p=plt.figure(figsize=(12,8))
-		
-	sns.pairplot(data)
+	g = sns.PairGrid(data)
+    	g.map_diag(my_hist)
+    	g.map_offdiag(my_scatter)
+	#sns.pairplot(data)
 	#plt.show()
 	#plt.title("Pair Plot")
 	col2.pyplot(plt)
