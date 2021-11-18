@@ -144,8 +144,8 @@ if is_check_pair:
 		f_p=plt.figure(figsize=(12,8))
 		
 	sns.pairplot(data)
-	plt.show()
-	plt.title("Pair Plot")
+	#plt.show()
+	#plt.title("Pair Plot")
 	col2.pyplot(plt)
      
 ####################    Plotting correlation Matrix  ##################################
