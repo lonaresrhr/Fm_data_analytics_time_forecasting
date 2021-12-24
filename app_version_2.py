@@ -41,7 +41,7 @@ uploaded_file = st.sidebar.file_uploader("Upload your input  csv or xlsx file he
 
 def upload_function():
 	try:
-    		data = pd.read_csv(uploaded_file)
+    		data = pd.read_csv(uploaded_file,sep=',|;')
 
 	except:
     		data=pd.read_excel(uploaded_file)
