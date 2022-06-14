@@ -203,7 +203,36 @@ if is_check5:
 		plt.show()
 		plt.title(feature[i]+"_Correlation_Matrix")
 		col2.pyplot(f1)
-     
+################ Plotting only selected feature correlation matrix ########################
+is_check_corr=col3.checkbox("Display selected features correlation matrix with each other")
+if is_check_corr:
+	sns.set(style="white")
+	mask = np.triu(np.ones_like(corr, dtype=np.bool))
+	#plt.figure(figsize=(25,10))
+	cmap = sns.diverging_palette(0, 359, as_cmap=False,n=66)
+	
+	l1=len(data.columns)
+	corr1=data.corr()
+	if (l1<=5) :
+		f1=plt.figure(figsize=(10,3))
+	elif(l1<=10):
+		f1=plt.figure(figsize=(10,5))
+	else:
+		f1=plt.figure(figsize=(12,8))
+	sns.heatmap(corr1, mask=mask, cmap=cmap,center=0,
+                square=True, linewidths=.5, cbar_kws={"shrink": .5}, annot=True)	
+	plt.title('Correlation Matrix', fontsize=18)		
+	col2.pyplot(f1)
+
+    
+
+    
+
+    
+
+
+
+    
 #####################	Plotting Histograms	#############################################
 
 is_check4=col3.checkbox("Display selected features histograms")
