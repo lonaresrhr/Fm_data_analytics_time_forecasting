@@ -207,12 +207,14 @@ if is_check5:
 is_check_corr=col3.checkbox("Display selected features correlation matrix with each other")
 if is_check_corr:
 	sns.set(style="white")
-	mask = np.triu(np.ones_like(corr, dtype=np.bool))
+	
 	#plt.figure(figsize=(25,10))
-	cmap = sns.diverging_palette(0, 359, as_cmap=False,n=66)
+	
 	
 	l1=len(data.columns)
 	corr1=data.corr()
+	mask = np.triu(np.ones_like(corr1, dtype=np.bool))
+	cmap = sns.diverging_palette(0, 359, as_cmap=False,n=66)
 	if (l1<=5) :
 		f1=plt.figure(figsize=(10,3))
 	elif(l1<=10):
