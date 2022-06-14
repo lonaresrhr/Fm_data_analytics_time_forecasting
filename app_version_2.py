@@ -48,15 +48,20 @@ def upload_function():
     
     
    
-	data1=data.drop('Timestamp', axis=1)
+	
 	data2=data
 	try:
-    		data1['Timestamp'] = pd.to_datetime(data.Timestamp ,format='%Y-%m-%d %H:%M:%S') 
-    		data1.set_index("Timestamp", inplace = True)
+		try:
+			data1=data.drop('Timestamp', axis=1)
+			data1['Timestamp'] = pd.to_datetime(data.Timestamp ,format='%Y-%m-%d %H:%M:%S') 
+			data1.set_index("Timestamp", inplace = True)
 
+		except:
+			data1=data.drop('Timestamp', axis=1)
+			data1['Timestamp'] = pd.to_datetime(data.Timestamp ,format='%d-%m-%Y %H:%M:%S') 
+			data1.set_index("Timestamp", inplace = True)
 	except:
-    		data1['Timestamp'] = pd.to_datetime(data.Timestamp ,format='%d-%m-%Y %H:%M:%S') 
-    		data1.set_index("Timestamp", inplace = True)
+		data1=data
     
 	
 	return data1,data2,data
