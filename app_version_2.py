@@ -128,22 +128,22 @@ data=pd.DataFrame(orignaldata[feature])
 
 is_check1=col3.checkbox("Display  Data")
 if is_check1:
-	if len(data)>1:
-		col2.write(data)
-	else:
+	if len(data)==0:
 		col2.write(orignaldata)
+	else:
+		col2.write(data)
 	
     
 	
 ###### displaying statastical properties ######
 is_check = col3.checkbox("Display statastical properties of  Data")
 if is_check:
-	if len(data)>1:
-		stat_data=data.describe()
+	if len(data)==0:
+		stat_data=orignaldata.describe()
 		col2.write(stat_data)
 	else:
-		stat_data=orignaldata.describe()
-		col2.write(stat_datadata)
+		stat_data=data.describe()
+		col2.write(stat_data)
     
 ################ PLotting Pair plots  ###################
 
