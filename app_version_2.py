@@ -128,20 +128,23 @@ data=pd.DataFrame(orignaldata[feature])
 
 is_check1=col3.checkbox("Display  Data")
 if is_check1:
-    col2.write("Selected Feature Data")
-    if len(data)>1:
-	col2.write(data)
-    else:
-	col2.write(orignaldata)
+	if len(data)>1:
+		col2.write(data)
+    	else:
+		col2.write(orignaldata)
+	
+    
+	
 ###### displaying statastical properties ######
 is_check = col3.checkbox("Display statastical properties of  Data")
 if is_check:
-    if len(data)>1:
-	stat_data=data.describe()
-	col2.write(stat_data)
-    else:
-	stat_data=orignaldata.describe()
-	col2.write(stat_datadata)
+	if len(data)>1:
+		stat_data=data.describe()
+		col2.write(stat_data)
+    	else:
+		stat_data=orignaldata.describe()
+	c	ol2.write(stat_datadata)
+    
 ################ PLotting Pair plots  ###################
 
 get_colors = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF),range(n)))
