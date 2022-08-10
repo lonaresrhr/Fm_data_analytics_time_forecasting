@@ -147,36 +147,39 @@ if is_check:
     
 ################ PLotting Pair plots  ###################
 
-get_colors = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF),range(n)))
-colors1=get_colors(len(data.columns)**2)
+# get_colors = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF),range(n)))
+# colors1=get_colors(len(data.columns)**2)
 
-colors=iter(colors1)
-def my_scatter(x,y, **kwargs):
-    kwargs['color'] = next(colors)
-    plt.scatter(x,y, **kwargs)
+# colors=iter(colors1)
+# def my_scatter(x,y, **kwargs):
+#     kwargs['color'] = next(colors)
+#     plt.scatter(x,y, **kwargs)
 
-def my_hist(x, **kwargs):
-    kwargs['color'] = next(colors)
-    plt.hist(x, **kwargs)
+# def my_hist(x, **kwargs):
+#     kwargs['color'] = next(colors)
+#     plt.hist(x, **kwargs)
 
 
-is_check_pair = col3.checkbox("Plot Selected feature Pairplot")
-if is_check_pair:
-	l1=len(data.columns)
-	if (l1<=5) :
-		f_p=plt.figure(figsize=(10,3))
-	elif(l1<=10):
-		f_p=plt.figure(figsize=(10,5))
-	else:
-		f_p=plt.figure(figsize=(12,8))
-	g = sns.PairGrid(data)
-	g.map_diag(my_hist)
-	g.map_offdiag(my_scatter)
-	#sns.pairplot(data)
-	#plt.show()
-	#plt.title("Pair Plot")
-	col2.pyplot(plt)
-     
+# is_check_pair = col3.checkbox("Plot Selected feature Pairplot")
+# if is_check_pair:
+# 	l1=len(data.columns)
+# 	if (l1<=5) :
+# 		f_p=plt.figure(figsize=(10,3))
+# 	elif(l1<=10):
+# 		f_p=plt.figure(figsize=(10,5))
+# 	else:
+# 		f_p=plt.figure(figsize=(12,8))
+# 	g = sns.PairGrid(data)
+# 	g.map_diag(my_hist)
+# 	g.map_offdiag(my_scatter)
+# 	#sns.pairplot(data)
+# 	#plt.show()
+# 	#plt.title("Pair Plot")
+# 	col2.pyplot(plt)
+sns.pairplot(data)
+plt.show()
+plt.title("Pair Plot")
+col2.pyplot(plt)     
 ####################    Plotting correlation Matrix  ##################################
 l=len(feature)
 list1=range(0,l)
