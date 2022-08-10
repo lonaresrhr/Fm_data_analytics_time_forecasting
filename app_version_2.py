@@ -130,7 +130,7 @@ is_check1=col3.checkbox("Display  Data")
 if is_check1:
 	if len(data)>1:
 		col2.write(data)
-    	else:
+	else:
 		col2.write(orignaldata)
 	
     
@@ -141,9 +141,9 @@ if is_check:
 	if len(data)>1:
 		stat_data=data.describe()
 		col2.write(stat_data)
-    	else:
+	else:
 		stat_data=orignaldata.describe()
-	c	ol2.write(stat_datadata)
+		col2.write(stat_datadata)
     
 ################ PLotting Pair plots  ###################
 
