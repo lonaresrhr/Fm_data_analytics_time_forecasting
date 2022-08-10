@@ -123,21 +123,25 @@ plot_timeline =col1.radio('Plot data Timeline', ['Daily','Hourly','Minute-Wise',
 
 ####################   Displaying   datafrmes  ###################################
    
-is_check = col3.checkbox("Display orignal Data")
-if is_check:
-    col2.write("Orignal Data")
-    col2.write(orignaldata)
-    
-
-
-
 data=pd.DataFrame(orignaldata[feature])
 #data=data.dropna()
 
-is_check1=col3.checkbox("Display selected features Data")
+is_check1=col3.checkbox("Display  Data")
 if is_check1:
     col2.write("Selected Feature Data")
-    col2.write(data)
+    if len(data)>1:
+	col2.write(data)
+    else:
+	col2.write(orignaldata)
+###### displaying statastical properties ######
+is_check = col3.checkbox("Display statastical properties of  Data")
+if is_check:
+    if len(data)>1:
+	stat_data=data.describe()
+	col2.write(stat_data)
+    else:
+	stat_data=orignaldata.describe()
+	col2.write(stat_datadata)
 ################ PLotting Pair plots  ###################
 
 get_colors = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF),range(n)))
