@@ -29,7 +29,7 @@ st.image(image, width = 250)
 #st.title(' Fm data Analytics App')
 
 col1 = st.sidebar
-col2, col3 = st.beta_columns((3,1))
+col2, col3 = st.columns.((3,1))
 
 col3.title('Analytics Section')
 
