@@ -160,8 +160,8 @@ if is_check:
 #     plt.hist(x, **kwargs)
 
 
-# is_check_pair = col3.checkbox("Plot Selected feature Pairplot")
-# if is_check_pair:
+is_check_pair = col3.checkbox("Plot Selected feature Pairplot")
+if is_check_pair:
 # 	l1=len(data.columns)
 # 	if (l1<=5) :
 # 		f_p=plt.figure(figsize=(10,3))
@@ -176,10 +176,10 @@ if is_check:
 # 	#plt.show()
 # 	#plt.title("Pair Plot")
 # 	col2.pyplot(plt)
-sns.pairplot(data)
-plt.show()
-#plt.title("Pair Plot")
-col2.pyplot(plt)     
+	sns.pairplot(data)
+	plt.show()
+	#plt.title("Pair Plot")
+	col2.pyplot(plt)     
 ####################    Plotting correlation Matrix  ##################################
 l=len(feature)
 list1=range(0,l)
