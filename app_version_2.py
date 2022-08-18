@@ -162,13 +162,13 @@ if is_check:
 
 is_check_pair = col3.checkbox("Plot Selected feature Pairplot")
 if is_check_pair:
-# 	l1=len(data.columns)
-# 	if (l1<=5) :
-# 		f_p=plt.figure(figsize=(10,3))
-# 	elif(l1<=10):
-# 		f_p=plt.figure(figsize=(10,5))
-# 	else:
-# 		f_p=plt.figure(figsize=(12,8))
+	l1=len(data.columns)
+	if (l1<=5) :
+		f_p=plt.figure(figsize=(10,3))
+	elif(l1<=10):
+		f_p=plt.figure(figsize=(10,5))
+	else:
+		f_p=plt.figure(figsize=(12,8))
 # 	g = sns.PairGrid(data)
 # 	g.map_diag(my_hist)
 # 	g.map_offdiag(my_scatter)
