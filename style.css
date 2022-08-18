@@ -38,9 +38,9 @@ div.st-df{
 
 */
 
-
+/*
 div.st-dh{
-  background-color:rgb(126, 167, 167);
+  background-color:rgb(255, 255, 255);
 }
 
 div.st-dc{
@@ -50,14 +50,19 @@ div.st-dd{
   background-color: rgb(126, 167, 167);
 
 }
-div.st-de{
-  background-color:rgb(126, 167, 167);
-}
+
 
 div.st-df{
   background-color: rgb(126, 167, 167);
 }
+*/
+div.st-de{
+  background-color:rgb(126, 167, 167);
+}
 
+div.st-dr{
+  background-color:rgb(255, 255, 255);
+}
 
 
 div.stMarkdown{
@@ -105,13 +110,13 @@ div.css-12w0qpk.e1tzin5v2{
 
 
 button.css-uc7ato.edgvbvh1{
-  background-color: #13a810;
+  background-color: #187891;
   padding: 3% 3% 3% 3%;
   border-radius: 2px;
 }
 
 button.css-1qrvfrg.edgvbvh9{
-  background-color: #95f895;
+  background-color: #4593b0;
   padding: 3% 3% 3% 3%;
   border-radius: 2px;
 }
