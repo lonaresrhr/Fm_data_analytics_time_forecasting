@@ -12,11 +12,89 @@ img {
 
 /* Centering text in each gray box */
 
+/*  feature selection color changes 
+div.css-177yq5e.e16nr0p30{
+  background-color: #e4ece3;
+  padding: 3% 3% 3% 3%;
+  border-radius: 2px;
+}
+
+div.st-de{
+  background-color: rgb(224, 207, 13);
+}
+div.st-df{
+  background-color: rgb(126, 167, 167);
+}
+
+div.st-dc{
+  background-color: rgb(126, 167, 167);
+}
+div.st-dd{
+  background-color: rgb(126, 167, 167);
+}
+*/
+
+div.st-de{
+  background-color:rgb(126, 167, 167);
+}
+div.st-df{
+  background-color: rgb(126, 167, 167);
+}
+
+
+
+div.stMarkdown{
+  background-color: #e4ece3;
+  padding: 3% 3% 3% 3%;
+  border-radius: 2px;
+}
+
+
+
+
+
+
+span.st-dc{
+  background-color: rgb(42, 176, 207);
+}
+span.st-dd{
+  background-color: rgb(42, 176, 207);
+}
+span.st-de{
+  background-color: rgb(42, 176, 207);
+}
+span.st-df{
+  background-color: rgb(42, 176, 207);
+}
+/*
+span.css-st-bh.st-cz.st-cy.st-fm{
+span.css-st-bh.st-cz.st-cy.st-fm{
+  background-color:#5f8cb3
+}
+*/
+
+div.css-1v0mbdj.etr89bj1{
+ align-items: center;
+}
+
+/* analytics section properties changes*/
 div.css-12w0qpk.e1tzin5v2{
   background-color: #EEEEEE;
     padding: 3% 3% 3% 3%;
     border-radius: 2px;
 }
+
+/* brows file button  colior change */
+button.css-uc7ato.edgvbvh1{
+  background-color: #13a810;
+  padding: 3% 3% 3% 3%;
+  border-radius: 2px;
+}
+span.css-10trblm.e16nr0p33{
+  color: rgb(6, 89, 89);
+}
+
+
 
 div.css-1ht1j8u.e16fv1kl0 {
   text-align: center;
