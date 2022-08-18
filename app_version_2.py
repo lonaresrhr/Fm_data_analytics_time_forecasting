@@ -22,6 +22,9 @@ import random
 st.set_page_config(page_title='Fm data Analytics App',layout='wide')
 #st.set_option('deprecation.showPyplotGlobalUse', False) ### To hide matplotlib.pyplot error have to correct later on
 
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 
 image = Image.open('logo1.jpeg')
 
