@@ -19,12 +19,7 @@ div.css-177yq5e.e16nr0p30{
   border-radius: 2px;
 }
 
-div.st-de{
-  background-color: rgb(224, 207, 13);
-}
-div.st-df{
-  background-color: rgb(126, 167, 167);
-}
+
 
 div.st-dc{
   background-color: rgb(126, 167, 167);
@@ -48,6 +43,20 @@ div.st-dh{
   background-color:rgb(126, 167, 167);
 }
 
+div.st-dc{
+  background-color: rgb(126, 167, 167);
+}
+div.st-dd{
+  background-color: rgb(126, 167, 167);
+
+}
+div.st-de{
+  background-color:rgb(126, 167, 167);
+}
+
+div.st-df{
+  background-color: rgb(126, 167, 167);
+}
 
 
 
@@ -102,7 +111,7 @@ button.css-uc7ato.edgvbvh1{
 }
 
 button.css-1qrvfrg.edgvbvh9{
-  background-color: #3b4b3b;
+  background-color: #95f895;
   padding: 3% 3% 3% 3%;
   border-radius: 2px;
 }
